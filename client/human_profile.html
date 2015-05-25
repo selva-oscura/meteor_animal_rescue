@@ -1,0 +1,87 @@
+<template name="humanProfile">
+  <div class="col-sm-2"></div>
+  <div class="col-sm-8">
+    <h3>My Profile</h3>
+		{{#if userAddress}}
+			{{> userAddressDisplay}}
+			<p>&nbsp;</p>
+			<a href="/my_profile/edit">
+				<button class="btn btn-info edit">Edit</button>
+			</a>
+		{{else}}
+			<form>
+				{{> userAddressMissing}}
+				{{> addressForm}}
+				{{> addressFormSubmit}}
+				{{> addressStatement}}
+			</form>
+		{{/if}}
+	</div>
+</template>
+
+
+<template name="userAddressDisplay">
+	<p>{{me.profile.address.street_address}}<br />
+		{{me.profile.address.city}}, {{me.profile.address.state}} {{me.profile.address.postal_code}}<br />
+		{{me.profile.address.country}}
+	</p>
+</template>
+
+<template name="userAddressMissing">
+	<p><heavy>We have no address on file for you. Please enter your address (or at least your postal code and country).</heavy></p>
+</template>
+
+<template name="addressStatement">
+	<p><small>(To calculate distances between animals needing a home and people seeking an animal companion, we need your address. We do not reveal your address to any other user or use your address for any purpose other than calculating distances.)<br />
+		Thank you.</small></p>
+</template>
+
+<template name="addressForm">
+	<form class="form-horizontal">
+		<div class="form-group">
+			<label class="col-xs-3 control-label" for="street_address">Street Address:</label>
+			<div class="col-xs-9">
+				<input name="street_address" type="text" value="" />
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-xs-3 control-label" for="city">City:</label>
+			<div class="col-xs-9">
+				<input name="city" type="text" value="" />
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-xs-3 control-label" for="locale">State / Province:</label>
+			<div class="col-xs-9">
+				<input name="locale" type="text" value="" />
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-xs-3 control-label" for="postal_code">Postal Code:&nbsp;<span class="reqd">*</span></label>
+			<div class="col-xs-9">
+				<input name="postal_code" type="text" value="" />
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-xs-3 control-label" for="country">Country:&nbsp;<span class="reqd">*</span></label>
+			<div class="col-xs-9">
+				<select name="country">
+					<option disabled selected> -- please select-- </option>
+					{{#each countries}}
+						<option value="{{abbreviation}}">{{countryName}}</option>
+					{{/each}}
+				</select>
+			</div>
+		</div>
+	</form>
+</template>
+
+<template name = "addressFormSubmit">
+	<div class="form-group">
+		<div class="col-xs-3"></div>
+		<div class="col-xs-3">
+			<input type="submit" value="Update Address" class="btn btn-primary" />
+		</div>
+		<div class="clear"></div>
+	</div>
+</template>

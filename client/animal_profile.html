@@ -1,0 +1,59 @@
+<!--Animal Profile - shows image and full description -->
+
+<!-- template to display full animal profile -->
+<template name="animalProfile">
+	<!-- bootstrap to display image & description -->
+	<div class="row">
+		<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+		<div class="col-xs-10 col-sm-5 col-md-5 col-lg-5">
+			<div class="big-pic">
+				{{#if img_path}}
+
+					<!-- display actual animal image if available -->
+					<img src="{{img_path}}" alt="animal image">
+
+				{{else}}
+
+					<!-- display default paw image -->
+					<img src="/paw.png" alt="animal paw">
+				{{/if}}	
+			</div>
+			{{#if currentUser}}
+				{{#if currentUserOffered offererId}}
+					<p>&nbsp;</p>
+					<a href="/animal/{{_id}}/edit">
+						<button class="btn btn-info edit">Edit</button>
+					</a>
+					<button class="btn btn-danger delete">Remove</button>
+				{{/if}}
+			{{/if}}
+		</div>
+		<div class="col-xs-1 col-md-1 col-lg-1"></div>
+		<div class="xs-clear"></div>
+		<!-- display full animal profile -->
+		<div class="col-xs-1 col-md-1 col-lg-1"></div>
+		<div class="col-xs-10 col-sm-5 col-md-5 col-lg-5">
+			<div class="animal-details">
+				{{#if name}}<h3>{{name}}</h3>{{/if}}
+				<p>
+					{{#if type}}<b>Type:</b> {{prettifyType type}}<br />{{/if}}
+					{{#if age}}<b>Age:</b> {{prettifyAge age}}<br />{{/if}}
+					{{#if sex}}<b>Sex:</b> {{prettifySex sex}}<br />{{/if}}
+					{{#if size}}<b>Size:</b> {{prettifySize size}}<br />{{/if}}
+					{{#if breed}}<b>Breed:</b> {{breed}}<br />{{/if}}
+					{{#if color}}<b>Color:</b> {{color}}<br />{{/if}}
+					{{#if personality}}<b>Personality:</b> {{prettifyPersonality personality}}<br />{{/if}}
+					{{#if kid_friendly}}<b>Kid Friendly:</b> {{prettifyYesNo kid_friendly}}<br />{{/if}}
+					{{#if health_issues}}<b>Has special needs:</b> {{prettifyYesNo health_issues}}<br />{{/if}}
+					{{#if comments}}<b>Comments:</b> {{comments}}<br />{{/if}}
+				</p>
+				{{#if currentUser}}
+					<p><b>Contact:</b> {{offererEmail}}</p>
+				{{else}}
+					<p><b>Please login to see the contact info for this animal</b></p>
+				{{/if}}
+			</div>
+		</div>
+		<div class="col-xs-1 col-md-1 col-lg-1"></div>
+	</div>
+</template>	

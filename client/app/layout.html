@@ -1,0 +1,51 @@
+<template name="layout">
+	<div class="container">
+		{{> header}}
+		{{> errors}}
+		<div id="content" class="row">
+			{{> yield}}
+		</div>
+	</div>
+</template>
+
+<template name="header">
+	<div class="navbar navbar-default row" role="navigation">
+	    <div class="navbar-header">
+ 	        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+	            <span class="sr-only">Toggle navigation</span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	        </button>
+	    </div>
+	    <div class="navbar-collapse collapse">
+	        <ul class="nav navbar-nav">
+	            <li class="{{activeRouteClass 'animalList'}}">
+	            	<a href="{{pathFor 'animalList'}}">Human Seeking Animal</a>
+	            </li>
+	        </ul>
+	        <ul class="nav navbar-nav">
+	            <li class="{{activeRouteClass 'animalCreate'}}">
+	            	<a href="{{pathFor 'animalCreate'}}">Animal Seeking Human</a>
+	            </li>
+	        </ul>
+	        {{#if currentUser}}
+		        <ul class="nav navbar-nav">
+		            <li class="{{activeRouteClass 'animalListings'}}">
+		            	<a href="{{pathFor 'animalListings'}}">My Listings</a>
+		            </li>
+	        	</ul>
+		    {{/if}}
+	        {{#if currentUser}}
+		        <ul class="nav navbar-nav">
+		            <li class="{{activeRouteClass 'humanProfile'}}">
+		            	<a href="{{pathFor 'humanProfile'}}">Profile</a>
+		            </li>
+	        	</ul>
+		    {{/if}}
+	        <ul class="nav navbar-nav navbar-right">
+	            {{> loginButtons}}
+	        </ul>
+	    </div>
+	</div>
+</template>

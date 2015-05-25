@@ -1,0 +1,103 @@
+<template name="animalListings">
+	<div class="col-lg-1 col-md-1 col-sm-1"></div>
+	<div class="col-lg-11 col-md-11 col-sm-11 col-xs-12">
+		{{#if myAnimalListings}}
+			<h3>My Listings</h3>
+			{{#each myAnimalListings}}
+				{{> listing}}
+			{{/each}}
+		{{else}}
+			<h3>No Animals Currently Posted by Me</h3>
+		{{/if}}
+	</div>
+	<div class="clear"></div>
+</template>
+
+<template name="listing">
+	<div class="row animal-result">
+		<div class="col-lg-5 col-md-5 col-sm-6 col-xs-5">
+			<div class="full-width-pic">
+				{{#if img_path}}
+					<img src="{{img_path}}" alt="animal image">
+				{{else}}	
+					<img src="/paw.png" alt="animal paw">
+				{{/if}}		
+			</div>
+			<a href="/animal/{{_id}}/edit">
+				<button class="btn btn-info edit">Edit</button>
+			</a>
+			<button class="btn btn-danger delete">Remove</button>
+		</div>
+		<div class="col-lg-1 col-md-1"></div>
+		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-7">
+			<h3>{{name}}</h3>
+			<p>Type: 
+				{{#if type}}
+					{{prettifyType type}}
+				{{else}}
+					Information Unavailable
+				{{/if}}<br />
+				Age: 
+				{{#if age}}
+					{{prettifyAge age}}
+				{{else}}
+					Information Unavailable
+				{{/if}}<br />
+				Sex: 
+				{{#if sex}}
+					{{prettifySex sex}}
+				{{else}}
+					Information Unavailable
+				{{/if}}<br />
+				Size: 
+				{{#if size}}
+					{{prettifySize size}}
+				{{else}}
+					Information Unavailable
+				{{/if}}<br />
+				Breed: 
+				{{#if breed}}
+					{{breed}}
+				{{else}}
+					Information Unavailable
+				{{/if}}<br />
+				Color: 
+				{{#if color}}
+					{{color}}
+				{{else}}
+					Information Unavailable
+				{{/if}}<br />
+				Personality: 
+				{{#if personality}}
+					{{prettifyPersonality personality}}
+				{{else}}
+					Information Unavailable
+				{{/if}}<br />
+				Kid Friendly: 
+				{{#if kid_friendly}}
+					{{prettifyYesNo kid_friendly}}
+				{{else}}
+					Information Unavailable
+				{{/if}}<br />
+				Has Special Needs: 
+				{{#if health_issues}}
+					{{prettifyYesNo health_issues}}
+				{{else}}
+					Information Unavailable
+				{{/if}}<br />
+				Comments: 
+				{{#if comments}}
+					{{comments}}
+				{{else}}
+					Information Unavailable
+				{{/if}}<br />
+				Listed On: 
+				{{#if created_at}}
+					{{prettifyDate created_at}}
+				{{else}}
+					Information Unavailable
+				{{/if}}
+			</p>
+		</div>
+	</div>
+</template>
