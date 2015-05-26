@@ -1,4 +1,12 @@
 Meteor.methods({
+	fetchLatLong: function(postal_code, country){
+		// pull latitude/longitude data
+		var query = postal_code+" "+country;
+		var geo = new GeoCoder();
+		var geoResult = geo.geocode(query);
+		console.log(postal_code, country);
+		console.log(geoResult);
+	},
 	putLatLongInUser: function(query, id, addressAttributes){
 		// pull latitude/longitude data
 		var geo = new GeoCoder();

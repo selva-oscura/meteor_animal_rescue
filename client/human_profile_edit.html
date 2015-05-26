@@ -42,7 +42,7 @@
 				<select name="country">
 					<option disabled> -- please select-- </option>
 					{{#each countries}}
-						<option value="{{abbreviation}}" {{selectCountry abbreviation me.profile.address.country}}>{{countryName}}</option>
+						<option value="{{countryName}}" {{selectCountry countryName me.profile.address.country}}>{{countryName}}</option>
 					{{/each}}
 				</select>
 			</div>

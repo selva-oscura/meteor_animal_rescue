@@ -32,13 +32,13 @@ Template.animalList.events({
 	'submit .filter': function(e){
 		e.preventDefault();
 		var filter_data={};
-		console.log('change detected');
 
 		// get location data
 		var postal_code = $(e.target).find('[name=postal_code]').val();
 		var country = $(e.target).find('[name=country]').val();
-		if(country){
+		if(postal_code && country){
 			console.log(country, ' - ', postal_code);
+			Meteor.call('fetchLatLong', postal_code, country);
 		}
 
 		// get radio data
