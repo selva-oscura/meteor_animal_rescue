@@ -34,11 +34,11 @@ Template.animalList.events({
 		var filter_data={};
 
 		// get location data
-		var postal_code = $(e.target).find('[name=postal_code]').val();
+		var locale = $(e.target).find('[name=locale]').val();
 		var country = $(e.target).find('[name=country]').val();
-		if(postal_code && country){
-			console.log(country, ' - ', postal_code);
-			Meteor.call('fetchLatLong', postal_code, country);
+		if(locale && country){
+			console.log(country, ' - ', locale);
+			Meteor.call('fetchLatLong', locale, country);
 		}
 
 		// get radio data

@@ -1,11 +1,19 @@
 Meteor.methods({
-	fetchLatLong: function(postal_code, country){
+	fetchLatLong: function(locale, country){
 		// pull latitude/longitude data
-		var query = postal_code+" "+country;
+		var query = locale+" "+country;
 		var geo = new GeoCoder();
 		var geoResult = geo.geocode(query);
-		console.log(postal_code, country);
-		console.log(geoResult);
+		console.log(locale, country);
+		// console.log(geoResult.length);
+		// console.log(geoResult);
+		var coordinates={};
+		if(geoResult.length===1){
+			coordinates.latitude = geoResult[0].latitude;
+			coordinates.longitude = geoResult[0].longitude;
+			console.log(coordinates);
+			// feed coordinates to session (or to user profile....though that won't work if not logged in.....)
+		}
 	},
 	putLatLongInUser: function(query, id, addressAttributes){
 		// pull latitude/longitude data
