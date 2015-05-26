@@ -32,6 +32,14 @@ Template.animalList.events({
 	'submit .filter': function(e){
 		e.preventDefault();
 		var filter_data={};
+		console.log('change detected');
+
+		// get location data
+		var postal_code = $(e.target).find('[name=postal_code]').val();
+		var country = $(e.target).find('[name=country]').val();
+		if(country){
+			console.log(country, ' - ', postal_code);
+		}
 
 		// get radio data
 		var type = $(e.target).find('[name=type]:checked').val();
@@ -73,6 +81,9 @@ Template.animalList.events({
 		Session.set("currentFilter", filter_data);
 	},
 	'change input': function(){
+		$('.filter').submit();
+	},
+	'change select': function(){
 		$('.filter').submit();
 	}
 });
