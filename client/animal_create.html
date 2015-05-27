@@ -133,7 +133,7 @@
         <label class="col-xs-3 control-label" for="img_path">Animal's Location: </label>
          <div class="col-xs-9">
             {{#if userAddress}}
-              {{> userAddressDisplay}}
+                {{> userAddressDisplay}}
               <input type="hidden" name="userAddressPresent" value="true" />
               <label class="radio_spacing">
                 <input type="checkbox" id="differentAddress" />
@@ -144,9 +144,11 @@
             {{/if}}
          </div>
       </div>
-      {{#if userAddress}}
-      {{else}}
+      {{#unless userAddress}}
         {{> addressStatement}}
+        {{> addressForm}}
+      {{/unless}}
+      {{#if useDifferentAddress}}
         {{> addressForm}}
       {{/if}}
       <div class="form-group">

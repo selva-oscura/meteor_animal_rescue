@@ -1,3 +1,14 @@
+//helpers
+Template.animalCreate.helpers({
+	useDifferentAddress: function(){
+		var check=Session.get("useDifferentAddress");
+		if(!check){
+			check=false;
+		}
+		return check;
+	}
+})
+
 // events
 Template.animalCreate.events({
 	'submit form': function(e){
@@ -54,6 +65,19 @@ Template.animalCreate.events({
 			}
 		}
 	},
+	'change #differentAddress': function(){
+		var checked = $('#differentAddress:checked').val();
+		if(checked==="on"){
+			Session.set('useDifferentAddress', true);
+		}else{
+			Session.set('useDifferentAddress', false);
+		}
+	},
+	// 'change #range': function(){
+	// 	var range = $('input[name=range]').val();
+	// 	console.
+	// 	Session.set("currentRange", range);
+	// }
 	'click .cancel': function(){
 		window.location.href = "/";
 	}

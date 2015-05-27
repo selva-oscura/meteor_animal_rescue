@@ -115,10 +115,10 @@ if(Animals.find().count()===0){
 		kid_friendly: "1",
 		health_issues:"1",
 		comments:"arthritis",
-		img_path:"http://www.wallpapermania.eu/images/data/2012-06/2997_Brown-labrador-dog-let-me-eat.jpg",
+		img_path:"http://cdn-www.dailypuppy.com/media/dogs/anonymous/Orvis_Yellow_Labrador_Retriever_01.jpg_w450.jpg",
 		offererEmail: "adoptions@city.aspca.org",
 		offererId: "12345",
-		created_at: now - 1*day
+		created_at: now - 1.7*day
 	});
 	var animal8 = Animals.insert({
 		name:"Medusa",
