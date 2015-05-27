@@ -35,6 +35,8 @@ Template.humanProfileEdit.events({
 				if(error){
 					console.log(error.reason);
 					return throwError(error.reason);
+				}else{
+					Router.go('humanProfile');
 				}
 			});
 		}

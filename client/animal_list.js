@@ -1,3 +1,19 @@
+Template.filterAnimals.helpers({
+	currentRange: function(){
+		var range = Session.get("currentRange");
+		if(!range){
+			range=5;
+		}
+		return range;
+		// var range = $('form').find('[name=range]').val();
+		// var range = $('input[name=range]').val();
+		// console.log(range);
+		// return range;
+		// var range = $('input[name=range]').val();
+		// return range;
+	}
+});
+
 //helpers
 Template.animalList.helpers({
 	results: function(){
@@ -85,5 +101,9 @@ Template.animalList.events({
 	},
 	'change select': function(){
 		$('.filter').submit();
+	},
+	'change #range': function(){
+		var range = $('input[name=range]').val();
+		Session.set("currentRange", range);
 	}
 });
