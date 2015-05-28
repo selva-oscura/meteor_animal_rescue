@@ -1,14 +1,12 @@
-<template name="animalListings">
+<template name="myListings">
 	<div class="col-lg-1 col-md-1 col-sm-1"></div>
 	<div class="col-lg-11 col-md-11 col-sm-11 col-xs-12">
-		{{#if myAnimalListings}}
-			<h3>My Listings</h3>
-			{{#each myAnimalListings}}
-				{{> listing}}
-			{{/each}}
+		<h3>My Listings</h3>
+		{{#each myAnimalListings}}
+			{{> listing}}
 		{{else}}
 			<h3>No Animals Currently Posted by Me</h3>
-		{{/if}}
+		{{/each}}
 	</div>
 	<div class="clear"></div>
 </template>

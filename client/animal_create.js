@@ -66,12 +66,9 @@ Template.animalCreate.events({
 		}
 	},
 	'change #differentAddress': function(){
-		var checked = $('#differentAddress:checked').val();
-		if(checked==="on"){
-			Session.set('useDifferentAddress', true);
-		}else{
-			Session.set('useDifferentAddress', false);
-		}
+		var checked = document.getElementById('differentAddress').checked;
+		// console.log(checked);
+		Session.set('useDifferentAddress', checked);
 	},
 	// 'change #range': function(){
 	// 	var range = $('input[name=range]').val();

@@ -1,5 +1,5 @@
 //helpers
-Template.animalListings.helpers({
+Template.myListings.helpers({
 	myAnimalListings: function(){
 		var user=Meteor.user();
 		if(user){
@@ -9,7 +9,7 @@ Template.animalListings.helpers({
 });
 
 // events
-Template.animalListings.events({
+Template.myListings.events({
 	'click .delete': function(){
 		var targetAnimal = this;
 		console.log('detected delete request for',targetAnimal);
