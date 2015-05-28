@@ -33,8 +33,8 @@
 				<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 					<label class="col-xs-5 control-label" for="range">Range:<span class="reqd">*</span></label>
 					<div class="col-xs-7 narrowed_input">
-						<input type="range" id="range" name="range" min=5 value={{currentRange}} max=100 step=5 />
-						 <p class="text-center">{{currentRange}} miles</p>
+						<input type="range" id="range" name="range" min=1 value={{currentRange}} max=6 step=1 />
+						 <p class="text-center">{{prettifyRange currentRange}} miles</p>
 					</div>
 				</div>
 			</div>

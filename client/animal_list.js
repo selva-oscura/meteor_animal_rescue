@@ -3,9 +3,26 @@ Template.filterAnimals.helpers({
 	currentRange: function(){
 		var range = Session.get("currentRange");
 		if(!range){
-			range=5;
+			range=1;
 		}
 		return range;
+	},
+	prettifyRange:function(range){
+		var data;
+		if(range==1){
+			data=5;
+		}else if(range==2){
+			data=10;
+		}else if(range==3){
+			data=15;
+		}else if(range==4){
+			data=25;
+		}else if(range==5){
+			data=50;
+		}else if(range==6){
+			data=100;
+		}
+		return data;		
 	}
 });
 
