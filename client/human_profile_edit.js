@@ -1,13 +1,8 @@
 Template.addressFormEdit.helpers({
 	me: function(){
 		return Meteor.user();
-	},
-	selectCountry: function(list, record){
-		if(list===record){
-			return "selected";
-		}
 	}
-})
+});
 
 // events
 Template.humanProfileEdit.events({

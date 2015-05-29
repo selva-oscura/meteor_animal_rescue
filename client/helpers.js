@@ -1,3 +1,17 @@
+UI.registerHelper('selectedShow', function(prop, value){
+	var data = "selected";
+	if(prop == value){
+		return data;
+	}	
+});
+
+UI.registerHelper('checkedShow', function(prop, value){
+	var data = "checked";
+	if(prop == value){
+		return data;
+	}	
+});
+
 UI.registerHelper("prettifyDate", function(timestamp) {
     return moment(timestamp).format('Do MMMM YYYY');
 });

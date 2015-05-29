@@ -24,15 +24,35 @@ Meteor.methods({
 		var data={};
 		data.address = _.extend(addressAttributes,{
 			latitude: geoResult[0].latitude,
-			longitude: geoResult[0].longitude,
-			updated_at: new Date()
+			longitude: geoResult[0].longitude
 		});
 		var updated = Meteor.users.update(
 			{_id: id},
-			{$set: {"profile": data}}
+			{$set: {profile: data, updated_at: new Date()}}
 		);
 		if(!updated){
 			throw new Meteor.Error(500, "Erk....  Failure to update?.")
+		}
+	},
+	putLatLongInAnimal: function(query, animalId, addressAttributes){
+		var geo = new GeoCoder();
+		var geoResult = geo.geocode(query);
+
+		// update user profile address 
+		var data={};
+		data = _.extend(addressAttributes,{
+			latitude: geoResult	[0].latitude,
+			longitude: geoResult[0].longitude
+		});
+		var updated = Animals.update(
+			{_id: animalId},
+			{$set: {address: data, updated_at: new Date()}}
+		);
+		console.log('putLatLongInAnimal updated?', updated);
+		if(!updated){
+			throw new Meteor.Error(500, "Erk....  Failure to update?.")
+		}else{
+			return;
 		}
 	}
 });

@@ -136,7 +136,11 @@
                 {{> userAddressDisplay}}
               <input type="hidden" name="userAddressPresent" value="true" />
               <label class="radio_spacing">
-                <input type="checkbox" id="differentAddress" />
+                {{#if useDifferentAddress}}
+                  <input type="checkbox" id="differentAddress" checked />
+                {{else}}
+                  <input type="checkbox" id="differentAddress" />
+                {{/if}}
                 Use a Different Address for this Animal
               </label>
             {{else}}
@@ -149,6 +153,7 @@
         {{> addressForm}}
       {{/unless}}
       {{#if useDifferentAddress}}
+        <input type="hidden" name="useDifferentAddress" value="true" />
         {{> addressForm}}
       {{/if}}
       <div class="form-group">

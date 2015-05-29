@@ -7,7 +7,7 @@ Template.animalCreate.helpers({
 		}
 		return check;
 	}
-})
+});
 
 // events
 Template.animalCreate.events({
@@ -27,16 +27,9 @@ Template.animalCreate.events({
 			comments:$(e.target).find('[name=comments]').val(),
 			img_path:$(e.target).find('[name=img_path]').val()
 		}
+		var useDifferentAddress = $(e.target).find('[name=useDifferentAddress]').val();
 		var userAddressPresent = $(e.target).find('[name=userAddressPresent]').val();
-		if(userAddressPresent == "true"){
-			Meteor.call('animalCreateExistingAddress', animal, function(error, result){
-				if(error){
-					console.log(error.reason);
-					return throwError(error.reason);
-				}
-				Router.go('animalProfile', {_id: result._id});
-			});
-		}else{
+		if((useDifferentAddress=="true")||(userAddressPresent != "true")){
 			var address = {
 				street_address:$(e.target).find('[name=street_address]').val(),
 				city:$(e.target).find('[name=city]').val(),
@@ -60,9 +53,21 @@ Template.animalCreate.events({
 						console.log(error.reason);
 						return throwError(error.reason);
 					}
+					Session.set("useDifferentAddress", false);
 					Router.go('animalProfile', {_id: result._id});
 				});
 			}
+		}
+		else if(userAddressPresent == "true"){
+			Meteor.call('animalCreateExistingAddress', animal, function(error, result){
+				if(error){
+					console.log(error.reason);
+					return throwError(error.reason);
+				}
+				Router.go('animalProfile', {_id: result._id});
+			});
+		}else{
+			console.log('my logic sucks');
 		}
 	},
 	'change #differentAddress': function(){

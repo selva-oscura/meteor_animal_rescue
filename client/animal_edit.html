@@ -1,170 +1,202 @@
 <template name="animalEdit">
-  <div class="row">
-  	<p></p>
-	  <div class="col-lg-2 col-md-1 col-sm-1 col-xs-1"></div>
-	  <div class="col-lg-3 col-md-3 col-sm-4 col-xs-11">
-		<div class="full-width-pic">
-			{{#if img_path}}
-				<img src="{{img_path}}" alt="animal image">
-			{{else}}	
-				<img src="/paw.png" alt="animal paw">
-			{{/if}}		
+	<div class="row">
+		<p></p>
+		<div class="col-lg-2 col-md-1 col-sm-1 col-xs-1"></div>
+		<div class="col-lg-3 col-md-3 col-sm-4 col-xs-11">
+			<div class="full-width-pic">
+				{{#if img_path}}
+					<img src="{{img_path}}" alt="animal image">
+				{{else}}	
+					<img src="/paw.png" alt="animal paw">
+				{{/if}}		
+			</div>
 		</div>
-	  </div>
-	  <div class="col-xs-1"></div>
-	  <div class="col-lg-5 col-md-7 col-sm-6 col-xs-11">
-	    <form class="form-horizontal">
-	      <div class="form-group">
-	          <label class="col-xs-3 control-label" for="name">Name: </label>
-	         <div class="col-xs-9">
-	              <input name="name" type="text" value="{{name}}"  />
-	         </div>
-	      </div>
-	      <div class="form-group">
-	        <label class="col-xs-3 control-label" for="type">Type: </label>
-			     <div class="col-xs-9">
-	          <label class="radio_spacing">
-	              <input type="radio" name="type" value="1" {{checkedShow type 1}}>
-	              Cat
-	          </label>
-	          <label class="radio_spacing">
-	              <input type="radio" name="type" value="2" {{checkedShow type 2}}>
-	              Dog
-	          </label>
-	         </div>
-	      </div>
-	      <div class="form-group">
-	          <label class="col-xs-3 control-label" for="sex">Sex: </label>
-	         <div class="col-xs-9">
-	          <label class="radio_spacing">
-	              <input type="radio" name="sex" value="2" {{checkedShow sex 2}}>
-	              Male
-	          </label>
-	          <label class="radio_spacing">
-	              <input type="radio" name="sex" value="1" {{checkedShow sex 1}}>
-	              Female
-	          </label>
-	          <label class="radio_spacing">
-	              <input type="radio" name="sex" value="-99" {{checkedShow sex -99}}>
-	              Don't Know
-	          </label>
-
-	         </div>
-	      </div>
-	      <div class="form-group">
-	          <label class="col-xs-3 control-label" for="age">Age: </label>
-	         <div class="col-xs-9">
-	              <select name="age">
-	              	<option value=""> -- please select-- </option>
-	                  <option value="1" {{selectedShow age 1}}>&lt;6 months</option>
-	                  <option value="2" {{selectedShow age 2}}>6 months - 1 year</option>
-	                  <option value="3" {{selectedShow age 3}}>1 - 3 years</option>
-	                  <option value="4" {{selectedShow age 4}}>3 - 5 years</option>
-	                  <option value="5" {{selectedShow age 5}}>5 - 10 years</option>
-	                  <option value="6" {{selectedShow age 6}}>&gt; 10 years</option>
-	                  <option value="-99" {{selectedShow age -99}}>Don't Know</option>
-	              </select>
-	         </div>
-	      </div>
-	      <div class="form-group">
-	          <label class="col-xs-3 control-label" for="size">Size: </label>
-	         <div class="col-xs-9">
-	              <select name="size">
-	              	<option value=""> -- please select-- </option>
-	                  <option value="1" {{selectedShow size 1}}>Very Small (&lt; 10lbs)</option>
-	                  <option value="2" {{selectedShow size 2}}>Small (10-25 lbs)</option>
-	                  <option value="3" {{selectedShow size 3}}>Medium (25-40 lbs)</option>
-	                  <option value="4" {{selectedShow size 4}}>Large (40-70 lbs)</option>
-	                  <option value="5" {{selectedShow size 5}}>Very Large (&gt; 70 lbs)</option>
-	                  <option value="-99" {{selectedShow size -99}}>Don't Know</option>
-	              </select>
-	         </div>
-	      </div>
-	      <div class="form-group">
-	          <label class="col-xs-3 control-label" for="breed">Breed: </label>
-	         <div class="col-xs-9">
-	         	{{#if breed}}
-	         	  <input name="breed" type="text" value="{{breed}}"  />
-	         	{{else}}
-	              <input name="breed" type="text" placeholder="Siamese mix? short-haired mix?" value="" />
-	         	{{/if}}
-	         </div>
-	      </div>
-	      <div class="form-group">
-	          <label class="col-xs-3 control-label" for="color">Color: </label>
-	          <div class="col-xs-9">
-	          	{{#if color}}
-	          	  <input name="color" type="text" value="{{color}}"  />
-	          	{{else}}
-	              <input name="color" type="text" placeholder="brown tabby? white &amp; black? marmalade?" />
-	          	{{/if}}
-	          </div>
-	      </div>
-	      <div class="form-group">
-	          <label class="col-xs-3 control-label" for="personality">Personality: </label>
-	         <div class="col-xs-9">
-	              <select name="personality">
-	              	<option value=""> -- please select-- </option>
-	                  <option value="3" {{selectedShow personality 3}}>Outgoing/Friendly</option>
-	                  <option value="1" {{selectedShow personality 1}}>Shy</option>
-	                  <option value="2" {{selectedShow personality 2}}>Sometime Shy/Sometimes Friendly</option>
-	                  <option value="-99" {{selectedShow personality -99}}>Don't Know</option>
-	              </select>
-	         </div>
-	      </div>
-	      <div class="form-group">
-	          <label class="col-xs-3 control-label" for="kid_friendly">Kid Friendly: </label>
-	         <div class="col-xs-9">
-	              <select name="kid_friendly">
-	                <option value=""> -- please select-- </option>
-	                  <option value="1" {{selectedShow kid_friendly 1}}>Yes</option>
-	                  <option value="0" {{selectedShow kid_friendly 0}}>No</option>
-	                  <option value="-99" {{selectedShow kid_friendly -99}}>Don't Know</option>
-	              </select>
-	         </div>
-	      </div>
-
-	      <div class="form-group">
-	          <label class="col-xs-3 control-label" for="health_issues">Health Issues: </label>
-	         <div class="col-xs-9">
-	              <select name="health_issues">
-	              	<option value=""> -- please select-- </option>
-	                  <option value="1" {{selectedShow health_issues 1}}>Yes</option>
-	                  <option value="0" {{selectedShow health_issues 0}}>No</option>
-	                  <option value="-99" {{selectedShow health_issues -99}}>Don't Know</option>
-	              </select>
-	         </div>
-	      </div>
-	      <div class="form-group">
-	          <label class="col-xs-3 control-label" for="comments">	Comments:<br />
-	          	Not required, but more information helps people find the right match.
-	          </label>
-	         <div class="col-xs-9">
-	         	{{#if comments}}
-	         	  <textarea name="comments" value="{{comments}}" ></textarea>
-	         	{{else}}
-	              <textarea name="comments" value="" placeholder="Introduction, Likes, Special Needs (in case of health issues etc.)" ></textarea>
-	            {{/if}}
-	         </div>
-	      </div>
-			<div class="form-group">
-	      	<label class="col-xs-3 control-label" for="img_path">Image: </label>
-	         <div class="col-xs-9">
-	      	<input type="text" name="img_path" value="{{img_path}}"/>
-	         </div>
-	      </div>
-	      <div class="form-group">
-	      	<div class="col-xs-3"></div>
-	        <div class="col-xs-3">
-	            <input type="submit" value="Update" class="btn btn-primary" />
-	       	</div>          
-	        <div class="col-xs-3">
-	            <button type="button" class="btn btn-default cancel">Cancel</button>
-	       	</div>
-	      </div>
-	    </form>
-	  </div>
-  </div>
-  <div class="clear"></div>
-
+		<div class="col-xs-1"></div>
+		<div class="col-lg-5 col-md-7 col-sm-6 col-xs-11">
+			<form class="form-horizontal">
+				<div class="form-group">
+					<label class="col-xs-3 control-label" for="name">Name: </label>
+					 <div class="col-xs-9">
+						<input name="name" type="text" value="{{name}}"	/>
+					 </div>
+				</div>
+				<div class="form-group">
+					<label class="col-xs-3 control-label" for="type">Type: </label>
+					<div class="col-xs-9">
+						<label class="radio_spacing">
+							<input type="radio" name="type" value="1" {{checkedShow type 1}}>
+							Cat
+						</label>
+						<label class="radio_spacing">
+							<input type="radio" name="type" value="2" {{checkedShow type 2}}>
+							Dog
+						</label>
+					 </div>
+				</div>
+				<div class="form-group">
+						<label class="col-xs-3 control-label" for="sex">Sex: </label>
+					 <div class="col-xs-9">
+						<label class="radio_spacing">
+							<input type="radio" name="sex" value="2" {{checkedShow sex 2}}>
+							Male
+						</label>
+						<label class="radio_spacing">
+							<input type="radio" name="sex" value="1" {{checkedShow sex 1}}>
+							Female
+						</label>
+						<label class="radio_spacing">
+							<input type="radio" name="sex" value="-99" {{checkedShow sex -99}}>
+							Don't Know
+						</label>
+					 </div>
+				</div>
+				<div class="form-group">
+					<label class="col-xs-3 control-label" for="age">Age: </label>
+					<div class="col-xs-9">
+						<select name="age">
+							<option value=""> -- please select-- </option>
+							<option value="1" {{selectedShow age 1}}>&lt;6 months</option>
+							<option value="2" {{selectedShow age 2}}>6 months - 1 year</option>
+							<option value="3" {{selectedShow age 3}}>1 - 3 years</option>
+							<option value="4" {{selectedShow age 4}}>3 - 5 years</option>
+							<option value="5" {{selectedShow age 5}}>5 - 10 years</option>
+							<option value="6" {{selectedShow age 6}}>&gt; 10 years</option>
+							<option value="-99" {{selectedShow age -99}}>Don't Know</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-xs-3 control-label" for="size">Size: </label>
+					<div class="col-xs-9">
+						<select name="size">
+							<option value=""> -- please select-- </option>
+							<option value="1" {{selectedShow size 1}}>Very Small (&lt; 10lbs)</option>
+							<option value="2" {{selectedShow size 2}}>Small (10-25 lbs)</option>
+							<option value="3" {{selectedShow size 3}}>Medium (25-40 lbs)</option>
+							<option value="4" {{selectedShow size 4}}>Large (40-70 lbs)</option>
+							<option value="5" {{selectedShow size 5}}>Very Large (&gt; 70 lbs)</option>
+							<option value="-99" {{selectedShow size -99}}>Don't Know</option>
+						</select>
+					 </div>
+				</div>
+				<div class="form-group">
+						<label class="col-xs-3 control-label" for="breed">Breed: </label>
+					 <div class="col-xs-9">
+					 	{{#if breed}}
+					 		<input name="breed" type="text" value="{{breed}}"	/>
+					 	{{else}}
+							<input name="breed" type="text" placeholder="Siamese mix? short-haired mix?" value="" />
+					 	{{/if}}
+					 </div>
+				</div>
+				<div class="form-group">
+						<label class="col-xs-3 control-label" for="color">Color: </label>
+						<div class="col-xs-9">
+							{{#if color}}
+								<input name="color" type="text" value="{{color}}"	/>
+							{{else}}
+								<input name="color" type="text" placeholder="brown tabby? white &amp; black? marmalade?" />
+							{{/if}}
+						</div>
+				</div>
+				<div class="form-group">
+						<label class="col-xs-3 control-label" for="personality">Personality: </label>
+						<div class="col-xs-9">
+							<select name="personality">
+								<option value=""> -- please select-- </option>
+								<option value="3" {{selectedShow personality 3}}>Outgoing/Friendly</option>
+								<option value="1" {{selectedShow personality 1}}>Shy</option>
+								<option value="2" {{selectedShow personality 2}}>Sometime Shy/Sometimes Friendly</option>
+								<option value="-99" {{selectedShow personality -99}}>Don't Know</option>
+							</select>
+						</div>
+				</div>
+				<div class="form-group">
+					<label class="col-xs-3 control-label" for="kid_friendly">Kid Friendly: </label>
+					<div class="col-xs-9">
+					<select name="kid_friendly">
+						<option value=""> -- please select-- </option>
+						<option value="1" {{selectedShow kid_friendly 1}}>Yes</option>
+						<option value="0" {{selectedShow kid_friendly 0}}>No</option>
+						<option value="-99" {{selectedShow kid_friendly -99}}>Don't Know</option>
+					</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-xs-3 control-label" for="health_issues">Health Issues: </label>
+					<div class="col-xs-9">
+						<select name="health_issues">
+							<option value=""> -- please select-- </option>
+							<option value="1" {{selectedShow health_issues 1}}>Yes</option>
+							<option value="0" {{selectedShow health_issues 0}}>No</option>
+							<option value="-99" {{selectedShow health_issues -99}}>Don't Know</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-xs-3 control-label" for="comments">	Comments:<br />
+						Not required, but more information helps people find the right match.
+						</label>
+					<div class="col-xs-9">
+					 	{{#if comments}}
+					 		<textarea name="comments" value="{{comments}}" ></textarea>
+					 	{{else}}
+							<textarea name="comments" value="" placeholder="Introduction, Likes, Special Needs (in case of health issues etc.)" ></textarea>
+						{{/if}}
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-xs-3 control-label" for="img_path">Image: </label>
+					<div class="col-xs-9">
+						<input type="text" name="img_path" value="{{img_path}}"/>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-xs-3 control-label" for="street_address">Street Address:</label>
+					<div class="col-xs-9">
+						<input name="street_address" type="text" value="{{address.street_address}}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-xs-3 control-label" for="city">City:</label>
+					<div class="col-xs-9">
+						<input name="city" type="text" value="{{address.city}}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-xs-3 control-label" for="locale">State / Province:</label>
+					<div class="col-xs-9">
+						<input name="locale" type="text" value="{{address.state}}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-xs-3 control-label" for="postal_code">Postal Code:&nbsp;<span class="reqd">*</span></label>
+					<div class="col-xs-9">
+						<input name="postal_code" type="text" value="{{address.postal_code}}" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-xs-3 control-label" for="country">Country:&nbsp;<span class="reqd">*</span></label>
+					<div class="col-xs-9">
+						<select name="country">
+							<option> -- please select -- </option>
+							{{#each countries}}
+								<option value="{{code}}" {{selectedShow code ../address.country }}>{{name}}</option>
+							{{/each}}
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-xs-3"></div>
+					<div class="col-xs-3">
+						<input type="submit" value="Update" class="btn btn-primary" />
+				 	</div>					
+					<div class="col-xs-3">
+						<button type="button" class="btn btn-default cancel">Cancel</button>
+				 	</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="clear"></div>
 </template>
