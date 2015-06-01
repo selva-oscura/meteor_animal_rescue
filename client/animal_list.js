@@ -68,23 +68,24 @@ Template.animalList.events({
 		if(locale && country){
 			console.log(country, ' - ', locale);
 			Meteor.call('fetchLatLong', locale, country, function(error, result){
-				console.log('error', error, 'result', result);
 				if(result == "error"){
 					console.log(result)
 				}else{
 					console.log('got coordinates?', result, result.latitude, result.longitude);
 					var userCoordinates = result;
-					Meteor.call('calcDistance', userCoordinates, function(error, result){
-						console.log(result);
-					});
-					// for(animal in Animals){
-					// 	console.log(Animals[animal]);
-					// }
-					// if(response.latitude){
-					// 	console.log('got results', response.latitude, response.longitude);
-					// }
+					var all_animals = this.Animals._collection.queries[1].results;
+					for(animal in all_animals){		
+						distanceToAnimal = Meteor.call('getDistance', userCoordinates, all_animals[animal], function(error, result){
+							console.log(error, result);
+							if(result>=0){
+								return result;
+							}else{
+								console.log('erk');
+							}
+						});
+						// console.log(all_animals[animal].name, distanceToAnimal, 'miles');
+					}
 				}
-				// console.log(response);
 			});
 		}
 

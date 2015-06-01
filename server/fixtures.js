@@ -16,6 +16,15 @@ if(Animals.find().count()===0){
 		img_path:"http://www.maine-coon-cat-nation.com/image-files/maine-coon-brown-mackerel.jpg",
 		offererEmail: "adoptions@city.aspca.org",
 		offererId: "12345",
+		address: 
+		    { 	street_address: '616 Serra Street',
+		      	city: 'Stanford',
+				state: 'CA',
+				postal_code: '94305',
+				country: 'US',
+				latitude: 37.4273156,
+				longitude: -122.1646818,
+			},
 		created_at: now - 1*day
 	});
 	var animal2 = Animals.insert({
@@ -33,6 +42,15 @@ if(Animals.find().count()===0){
 		img_path:"http://i.ebayimg.com/00/s/MzM1WDUwMA==/z/xlAAAOSw7aBVCXaG/$_35.JPG",
 		offererEmail: "had_to_move@nirgendwo.de",
 		offererId: "123456789",
+		address: 
+		    { 	street_address: '397 Street',
+		      	city: 'Los Altos',
+				state: 'CA',
+				postal_code: '94024',
+				country: 'US',
+				latitude: 37.3478257,
+				longitude: -122.1007867,
+			},
 		created_at: now - 4*day
 	});
 	var animal3 = Animals.insert({
@@ -50,6 +68,15 @@ if(Animals.find().count()===0){
 		img_path:"http://www.pets4homes.co.uk/images/classifieds/2013/07/31/377342/large/9-week-old-female-black-kitten-for-sale-in-wigan-51f910c6a18ff.jpeg",
 		offererEmail: "adoptions@county.humanesociety.org",
 		offererId: "54321",
+		address: 
+		    { 	street_address: '397 Street',
+		      	city: 'Los Altos',
+				state: 'CA',
+				postal_code: '94024',
+				country: 'US',
+				latitude: 37.3478257,
+				longitude: -122.1007867,
+			},
 		created_at: now - 3*day
 	});
 	var animal4 = Animals.insert({
@@ -67,6 +94,15 @@ if(Animals.find().count()===0){
 		img_path:"http://media.windingroad.com/windingroad/versus/toonces_jpg_470x470_q100.jpg",
 		offererEmail: "adoptions@city.aspca.org",
 		offererId: "12345",
+		address: 
+		    { 	street_address: '616 Serra Street',
+		      	city: 'Stanford',
+				state: 'CA',
+				postal_code: '94305',
+				country: 'US',
+				latitude: 37.4273156,
+				longitude: -122.1646818,
+			},
 		created_at: now - 2.2*day
 	});
 	var animal5 = Animals.insert({
@@ -84,6 +120,15 @@ if(Animals.find().count()===0){
 		img_path:"https://knv09.files.wordpress.com/2011/11/dsc_0139.jpg",
 		offererEmail: "adoptions@city.aspca.org",
 		offererId: "12345",
+		address: 
+		    { 	street_address: '616 Serra Street',
+		      	city: 'Stanford',
+				state: 'CA',
+				postal_code: '94305',
+				country: 'US',
+				latitude: 37.4273156,
+				longitude: -122.1646818,
+			},
 		created_at: now - 2.5*day
 	});	
 	var animal6 = Animals.insert({
@@ -101,6 +146,15 @@ if(Animals.find().count()===0){
 		img_path:"https://www.petfinder.com/wp-content/uploads/2012/11/147083304-dogs-home-alone-all-day-632x475.jpg",
 		offererEmail: "adoptions@city.aspca.org",
 		offererId: "12345",
+		address: 
+		    { 	street_address: '616 Serra Street',
+		      	city: 'Stanford',
+				state: 'CA',
+				postal_code: '94305',
+				country: 'US',
+				latitude: 37.4273156,
+				longitude: -122.1646818,
+			},
 		created_at: now - 1*day
 	});
 	var animal7 = Animals.insert({
@@ -118,6 +172,15 @@ if(Animals.find().count()===0){
 		img_path:"http://cdn-www.dailypuppy.com/media/dogs/anonymous/Orvis_Yellow_Labrador_Retriever_01.jpg_w450.jpg",
 		offererEmail: "adoptions@city.aspca.org",
 		offererId: "12345",
+		address: 
+		    { 	street_address: '616 Serra Street',
+		      	city: 'Stanford',
+				state: 'CA',
+				postal_code: '94305',
+				country: 'US',
+				latitude: 37.4273156,
+				longitude: -122.1646818,
+			},
 		created_at: now - 1.7*day
 	});
 	var animal8 = Animals.insert({
@@ -135,6 +198,15 @@ if(Animals.find().count()===0){
 		img_path:"http://media.masslive.com/talk_impact/photo/ugly-dogjpg-4a94782fd09dd3df.jpg",
 		offererEmail: "adoptions@city.aspca.org",
 		offererId: "12345",
+		address: 
+		    { 	street_address: '616 Serra Street',
+		      	city: 'Stanford',
+				state: 'CA',
+				postal_code: '94305',
+				country: 'US',
+				latitude: 37.4273156,
+				longitude: -122.1646818,
+			},
 		created_at: now - 3.2*day
 	});
 	var animal9 = Animals.insert({
@@ -152,6 +224,15 @@ if(Animals.find().count()===0){
 		img_path:"http://cdn26.us2.fansshare.com/photo/chihuahua/chihuahua-1389915891.jpg",
 		offererEmail: "adoptions@county.humanesociety.org",
 		offererId: "54321",
+		address: 
+		    { 	street_address: '397 Street',
+		      	city: 'Los Altos',
+				state: 'CA',
+				postal_code: '94024',
+				country: 'US',
+				latitude: 37.3478257,
+				longitude: -122.1007867,
+			},
 		created_at: now - 4*day
 	});
 }

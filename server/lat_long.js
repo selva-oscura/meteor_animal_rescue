@@ -59,33 +59,58 @@ Meteor.methods({
 			return;
 		}
 	},
-	calcDistance: function(userCoordinates){
+	getDistance: function(userCoordinates, animal){
 		console.log('received userCoordinates',userCoordinates);
-		// allAnimals = Animals.find({},{});
-
-		// haversine with userCoordinates and targetAnimalCoordinates & return the distance
-
-// Number.prototype.toRad = function() {
-//    return this * Math.PI / 180;
-// }
-
-// var lat2 = 42.741; 
-// var lon2 = -71.3161; 
-// var lat1 = 42.806911; 
-// var lon1 = -71.290611; 
-
-// var R = 6371; // km 
-// //has a problem with the .toRad() method below.
-// var x1 = lat2-lat1;
-// var dLat = x1.toRad();  
-// var x2 = lon2-lon1;
-// var dLon = x2.toRad();  
-// var a = Math.sin(dLat/2) * Math.sin(dLat/2) + 
-//                 Math.cos(lat1.toRad()) * Math.cos(lat2.toRad()) * 
-//                 Math.sin(dLon/2) * Math.sin(dLon/2);  
-// var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
-// var d = R * c; 
-
-// alert(d);
+		var currentAnimal=Animals.findOne(animal._id);
+		if(currentAnimal.address.longitude){
+			console.log(currentAnimal.name, currentAnimal.address.city);
+			var animalCoordinates = {
+				longitude: currentAnimal.address.longitude,
+				latitude: currentAnimal.address.latitude
+			}
+			getDistanceResult={};
+			Meteor.call('calcHaversine',userCoordinates, animalCoordinates, function(error, result){
+				console.log('result in getDistanceResult', result);
+				if(result>=0){
+					getDistanceResult._id = {
+						_id: currentAnimal._id,
+						name: currentAnimal.name,
+						distance: result
+					}
+					console.log('getDistanceResult',getDistanceResult);
+					return getDistanceResult;
+				}else{
+					throw new Meteor.Error(500, "Error getting distance between locations.");						
+				}
+			});
+		}
+	},
+	calcHaversine: function(userCoordinates, animalCoordinates){
+		console.log('in Haversine');
+		console.log(userCoordinates);
+		console.log(animalCoordinates);
+		Number.prototype.toRad = function() {
+		   return this * Math.PI / 180;
+		}
+		var R = 3958.75; //mi
+		var latDiff = userCoordinates.latitude - animalCoordinates.latitude;
+		console.log('120', latDiff);
+		var dLat = latDiff.toRad();
+		console.log('122', dLat);
+		var longDiff = userCoordinates.longitude - animalCoordinates.longitude;
+		console.log('124', longDiff);
+		var dLon = longDiff.toRad();
+		console.log('126', dLon);
+		var a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.cos(userCoordinates.latitude.toRad()) * Math.cos(animalCoordinates.latitude.toRad()) * Math.sin(dLon/2) * Math.sin(dLon/2);
+		console.log('128', a);
+		var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+		console.log('c', c);
+		output = R * c;
+		console.log('output', output);
+		if(output>=0){
+			return output;
+		}else{
+			throw new Meteor.Error(500, "Error calculating distance between locations.");
+		}
 	}
 });
