@@ -9,19 +9,12 @@ Template.filterAnimals.helpers({
 	},
 	prettifyRange:function(range){
 		var data;
-		if(range==1){
-			data=5;
-		}else if(range==2){
-			data=10;
-		}else if(range==3){
-			data=15;
-		}else if(range==4){
-			data=25;
-		}else if(range==5){
-			data=50;
-		}else if(range==6){
-			data=100;
-		}
+		if(range==1){ data=5; }
+		else if(range==2){ data=10; }
+		else if(range==3){ data=15; }
+		else if(range==4){ data=25; }
+		else if(range==5){ data=50; }
+		else if(range==6){ data=100; }
 		return data;		
 	}
 });
@@ -64,9 +57,18 @@ Template.animalList.events({
 		// get location data
 		var locale = $(e.target).find('[name=locale]').val();
 		var country = $(e.target).find('[name=country]').val();
-		var range = $(e.target).find('[name=range]').val();
-		if(locale && country){
-			console.log(country, ' - ', locale);
+		var range;
+		var range_raw = $(e.target).find('[name=range]').val();
+		if(range_raw){
+			if(range_raw==1){ range=5; }
+			else if(range_raw==2){ range=10; }
+			else if(range_raw==3){ range=15; }
+			else if(range_raw==4){ range=25; }
+			else if(range_raw==5){ range=50; }
+			else if(range_raw==6){ range=100; }
+		}
+		if(locale && country && range){
+			console.log(country, ' - ', locale, ' - ', range, 'miles');
 			Meteor.call('fetchLatLong', locale, country, function(error, result){
 				if(result == "error"){
 					console.log(result)
@@ -75,15 +77,16 @@ Template.animalList.events({
 					var userCoordinates = result;
 					var all_animals = this.Animals._collection.queries[1].results;
 					for(animal in all_animals){		
-						distanceToAnimal = Meteor.call('getDistance', userCoordinates, all_animals[animal], function(error, result){
-							console.log(error, result);
+						Meteor.call('getDistance', userCoordinates, all_animals[animal], function(error, result){
+							console.log('error',error, 'result', result);
 							if(result>=0){
+								console.log(all_animals[animal].name, distanceToAnimal, 'miles');
 								return result;
-							}else{
-								console.log('erk');
 							}
+							// else{
+							// 	console.log('erk');
+							// }
 						});
-						// console.log(all_animals[animal].name, distanceToAnimal, 'miles');
 					}
 				}
 			});
@@ -105,18 +108,18 @@ Template.animalList.events({
 
 		//get checkbox data
 		function getCheckedBoxes(checkboxName) {
-		  //get all checkboxes with the passed name
-		  var checkboxes = document.getElementsByName(checkboxName);
-		  var checkboxesChecked = [];
-		  // loop over them all
-		  for (var i=0; i<checkboxes.length; i++) {
-		     // And stick the checked ones onto an array...
-		     if (checkboxes[i].checked) {
-		        checkboxesChecked.push(checkboxes[i].value);
-		     }
-		  }
-		  // Return the array if it is non-empty, or null
-		  return checkboxesChecked.length > 0 ? checkboxesChecked : null;
+		  	//get all checkboxes with the passed name
+			var checkboxes = document.getElementsByName(checkboxName);
+			var checkboxesChecked = [];
+		  	// loop over them all
+			for(var i=0; i<checkboxes.length; i++) {
+				// And stick the checked ones onto an array...
+				if (checkboxes[i].checked) {
+					checkboxesChecked.push(checkboxes[i].value);
+				}
+			}
+			// Return the array if it is non-empty, or null
+			return checkboxesChecked.length > 0 ? checkboxesChecked : null;
 		}
 		var personality = getCheckedBoxes("personality");
 		if(personality!=null){filter_data.personality = personality;}
