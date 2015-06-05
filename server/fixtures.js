@@ -22,8 +22,7 @@ if(Animals.find().count()===0){
 				state: 'CA',
 				postal_code: '94305',
 				country: 'US',
-				latitude: 37.4273156,
-				longitude: -122.1646818,
+				coordinates: [-122.1646818, 37.4273156]
 			},
 		created_at: now - 1*day
 	});
@@ -43,13 +42,12 @@ if(Animals.find().count()===0){
 		offererEmail: "had_to_move@nirgendwo.de",
 		offererId: "123456789",
 		address: 
-		    { 	street_address: '397 Street',
-		      	city: 'Los Altos',
-				state: 'CA',
-				postal_code: '94024',
-				country: 'US',
-				latitude: 37.3478257,
-				longitude: -122.1007867,
+		    { 	street_address: 'Reichpietschufer',
+		      	city: 'Berlin',
+				state: '',
+				postal_code: '10785',
+				country: 'DE',
+				coordinates: [13.3650508, 52.50691150000001]
 			},
 		created_at: now - 4*day
 	});
@@ -69,13 +67,12 @@ if(Animals.find().count()===0){
 		offererEmail: "adoptions@county.humanesociety.org",
 		offererId: "54321",
 		address: 
-		    { 	street_address: '397 Street',
-		      	city: 'Los Altos',
-				state: 'CA',
-				postal_code: '94024',
-				country: 'US',
-				latitude: 37.3478257,
-				longitude: -122.1007867,
+		    { 	street_address: 'Reichpietschufer',
+		      	city: 'Berlin',
+				state: '',
+				postal_code: '10785',
+				country: 'DE',
+				coordinates: [13.3650508, 52.50691150000001]
 			},
 		created_at: now - 3*day
 	});
@@ -100,8 +97,7 @@ if(Animals.find().count()===0){
 				state: 'CA',
 				postal_code: '94305',
 				country: 'US',
-				latitude: 37.4273156,
-				longitude: -122.1646818,
+				coordinates: [-122.1689284, 37.4135757]
 			},
 		created_at: now - 2.2*day
 	});
@@ -126,8 +122,7 @@ if(Animals.find().count()===0){
 				state: 'CA',
 				postal_code: '94305',
 				country: 'US',
-				latitude: 37.4273156,
-				longitude: -122.1646818,
+				coordinates: [-122.1689284, 37.4135757]
 			},
 		created_at: now - 2.5*day
 	});	
@@ -152,8 +147,7 @@ if(Animals.find().count()===0){
 				state: 'CA',
 				postal_code: '94305',
 				country: 'US',
-				latitude: 37.4273156,
-				longitude: -122.1646818,
+				coordinates: [-122.1689284, 37.4135757]
 			},
 		created_at: now - 1*day
 	});
@@ -178,8 +172,7 @@ if(Animals.find().count()===0){
 				state: 'CA',
 				postal_code: '94305',
 				country: 'US',
-				latitude: 37.4273156,
-				longitude: -122.1646818,
+				coordinates: [-122.1689284, 37.4135757]
 			},
 		created_at: now - 1.7*day
 	});
@@ -204,8 +197,7 @@ if(Animals.find().count()===0){
 				state: 'CA',
 				postal_code: '94305',
 				country: 'US',
-				latitude: 37.4273156,
-				longitude: -122.1646818,
+				coordinates: [-122.1689284, 37.4135757]
 			},
 		created_at: now - 3.2*day
 	});
@@ -225,14 +217,44 @@ if(Animals.find().count()===0){
 		offererEmail: "adoptions@county.humanesociety.org",
 		offererId: "54321",
 		address: 
-		    { 	street_address: '397 Street',
-		      	city: 'Los Altos',
-				state: 'CA',
-				postal_code: '94024',
-				country: 'US',
-				latitude: 37.3478257,
-				longitude: -122.1007867,
+		    { 	street_address: 'Reichpietschufer',
+		      	city: 'Berlin',
+				state: '',
+				postal_code: '10785',
+				country: 'DE',
+				coordinates: [
+					13.3650508, 
+					52.50691150000001
+				]
 			},
 		created_at: now - 4*day
 	});
+	var animal10 = Animals.insert({
+		"name" : "Hobbes",
+		"type" : "1",
+		"sex" : "2",
+		"age" : "5",
+		"size" : "4",
+		"breed" : "Tiger",
+		"color" : "orange and black and white",
+		"personality" : "3",
+		"kid_friendly" : "1",
+		"health_issues" : "0",
+		"comments" : "Well.... friendly and outgoing with *his* human.",
+		"img_path" : "http://www.andrewsmcmeel.com/images/default-source/assets/calvin_dancing.gif?sfvrsn=2",
+		"offererId" : "c5EWbvCjuEWPXFsRq",
+		"offererEmail" : "niemand@nirgendwo.de",
+		"address" : {
+			"street_address" : "Reichpietschufer 35",
+			"city" : "Berlin",
+			"state" : "Berlin",
+			"postal_code" : "10785",
+			"country" : "DE",
+			"coordinates" : [
+				13.3691916,
+				52.506145
+			]
+		},
+		"created_at" : now-14*day
+	})
 }

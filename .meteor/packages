@@ -12,3 +12,4 @@ iron:router
 sacha:spin
 momentjs:moment
 aldeed:geocoder
+autopublish

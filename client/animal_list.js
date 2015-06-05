@@ -3,26 +3,30 @@ Template.filterAnimals.helpers({
 	currentRange: function(){
 		var range = Session.get("currentRange");
 		if(!range){
-			range=1;
+			range=4;
 		}
 		return range;
-	},
-	prettifyRange:function(range){
-		var data;
-		if(range==1){ data=5; }
-		else if(range==2){ data=10; }
-		else if(range==3){ data=15; }
-		else if(range==4){ data=25; }
-		else if(range==5){ data=50; }
-		else if(range==6){ data=100; }
-		return data;		
 	}
+	// ,
+	// prettifyRange:function(range){
+	// 	var data;
+	// 	if(range==1){ data=5; }
+	// 	else if(range==2){ data=10; }
+	// 	else if(range==3){ data=15; }
+	// 	else if(range==4){ data=25; }
+	// 	else if(range==5){ data=50; }
+	// 	else if(range==6){ data=100; }
+	// 	return data;		
+	// }
 });
 
 //helpers
 Template.animalList.helpers({
 	results: function(){
 		var filter_data = Session.get("currentFilter");
+		var user_data = Session.get("userCoordinates");
+		var range_data = Session.get("range");
+		console.log('filter_data', filter_data, 'user_data', user_data, 'range_data', range_data);
 		// console.log("Changed filter", JSON.stringify(filter_data));
 		var query={};
 		var andArray = [];
@@ -44,7 +48,11 @@ Template.animalList.helpers({
 			query['$and'] = andArray;
 		}
 		// console.log('query', JSON.stringify(query));
-	return Animals.find(query, {sort: {created_at: -1}});
+		if(Session.get('coordinates')!==true){
+			return Animals.find(query, {sort: {created_at: -1}});
+		}else{
+			return LocalAnimals.find(query, {sort: {distance: 1}});
+		}
 	}
 });
 
@@ -67,27 +75,29 @@ Template.animalList.events({
 			else if(range_raw==5){ range=50; }
 			else if(range_raw==6){ range=100; }
 		}
+		Session.set('range', range);
 		if(locale && country && range){
 			console.log(country, ' - ', locale, ' - ', range, 'miles');
 			Meteor.call('fetchLatLong', locale, country, function(error, result){
-				if(result == "error"){
-					console.log(result)
+				if(result == "error" || !result){
+					return throwError('Unable to computer your longitude and latitude.  Please check your internet connection or your city/postal code and country combination.');
 				}else{
-					console.log('got coordinates?', result, result.latitude, result.longitude);
-					var userCoordinates = result;
-					var all_animals = this.Animals._collection.queries[1].results;
-					for(animal in all_animals){		
-						Meteor.call('getDistance', userCoordinates, all_animals[animal], function(error, result){
-							console.log('error',error, 'result', result);
-							if(result>=0){
-								console.log(all_animals[animal].name, distanceToAnimal, 'miles');
-								return result;
-							}
-							// else{
-							// 	console.log('erk');
-							// }
-						});
-					}
+					console.log('got coordinates?', result);
+					// var coordinates = [result.longitude, result.latitude];
+					Session.set('userCoordinates', result);
+					// var userCoordinates = result;
+					// var all_animals = this.Animals._collection.queries[1].results;
+					// var animalDistances = Meteor.call('getDistance', userCoordinates, all_animals, function(error, result){
+					// 	console.log('error',error, 'result', result);
+					// 	// return result;
+					// 	for(var i = 0; i< result.length; i++){
+					// 		localAnimalCreate(result[i], function(error,result){
+					// 			if(error){
+					// 				console.log(error.reason);
+					// 			}
+					// 		});
+					// 	}
+					// });
 				}
 			});
 		}

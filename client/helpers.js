@@ -16,6 +16,17 @@ UI.registerHelper("prettifyDate", function(timestamp) {
     return moment(timestamp).format('Do MMMM YYYY');
 });
 
+UI.registerHelper("prettifyRange", function(range){
+	var data;
+	if(range==1){ data=5; }
+	else if(range==2){ data=10; }
+	else if(range==3){ data=15; }
+	else if(range==4){ data=25; }
+	else if(range==5){ data=50; }
+	else if(range==6){ data=100; }
+	return data;		
+});
+
 UI.registerHelper("prettifyType", function(type){
 	var data = "Information Unavailable";
 	if(type==1){
