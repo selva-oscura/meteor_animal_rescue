@@ -1,23 +1,20 @@
 //helpers
 Template.filterAnimals.helpers({
-	currentRange: function(){
+	currentLocale: function(){
+		var currentLocale = Session.get("currentLocale");
+		return currentLocale;
+	},currentCountry: function(code){
+		var currentCountry = Session.get("currentCountry");
+		if(currentCountry===code){
+			return "selected";
+		}
+	},currentRange: function(){
 		var range = Session.get("currentRange");
 		if(!range){
 			range=4;
 		}
 		return range;
 	}
-	// ,
-	// prettifyRange:function(range){
-	// 	var data;
-	// 	if(range==1){ data=5; }
-	// 	else if(range==2){ data=10; }
-	// 	else if(range==3){ data=15; }
-	// 	else if(range==4){ data=25; }
-	// 	else if(range==5){ data=50; }
-	// 	else if(range==6){ data=100; }
-	// 	return data;		
-	// }
 });
 
 //helpers
@@ -27,8 +24,8 @@ Template.animalList.helpers({
 		var user_data = Session.get("userCoordinates");
 		var range_data = Session.get("range");
 		console.log('filter_data', filter_data, 'user_data', user_data, 'range_data', range_data);
-		// console.log("Changed filter", JSON.stringify(filter_data));
 		var query={};
+		var distanceQuery={};
 		var andArray = [];
 		for(var key in filter_data){
 			var orArray = [];
@@ -47,12 +44,15 @@ Template.animalList.helpers({
 		if(andArray[0]){
 			query['$and'] = andArray;
 		}
-		// console.log('query', JSON.stringify(query));
-		if(Session.get('coordinates')!==true){
-			return Animals.find(query, {sort: {created_at: -1}});
-		}else{
-			return LocalAnimals.find(query, {sort: {distance: 1}});
+		console.log('query', JSON.stringify(query));
+		console.log('session.userCoordinates', user_data);
+		return Animals.find(query, {sort: {created_at: -1}});
+	},userCoordinates: function(){
+		var check=Session.get('userCoordinates');
+		if(!check){
+			check=false;
 		}
+		return check;
 	}
 });
 
@@ -64,7 +64,9 @@ Template.animalList.events({
 
 		// get location data
 		var locale = $(e.target).find('[name=locale]').val();
+		Session.set('currentLocale', locale);
 		var country = $(e.target).find('[name=country]').val();
+		Session.set('currentCountry', country);
 		var range;
 		var range_raw = $(e.target).find('[name=range]').val();
 		if(range_raw){
