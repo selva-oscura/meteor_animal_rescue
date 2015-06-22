@@ -39,7 +39,7 @@ Please add your name to the end of a task if you choose to work on it. If you fi
 			<li><del>for animal seeking human form, add address and also have info by pulling address information from user profile, allowing override of human profile address - Carol</del></li>
 			<li><del>take postal code (or address) information and convert it to longitude and latitude <br /><i><del>(we could use Google's Maps API <strong>if</strong> we then also use the Google Map API's functionality to display the map- possibly using it to show rough geographic distribution of results? that is part of the requirements for using the API.  There are alternatives to using Google's APIs, but those companies seem to be more ephemeral or more flaky.)</del></i> - - using meteor-geocoder (aldeed:geocoder) package to pull latitude and longitude information - In Progress (user's address animal address done - Carol</del></li>
 			<li><del>for human seeking animal, we'll ask for their postal code and country information when visiting the search results as well as the distance that they're willing to travel (5, 10, 25, 50, 100 miles) - Carol </del></li>
-			<li> Use human seeking animal form's location info and use it to pull the closest animals - In process - Currently trying to do this, using the router, but doesn't seem to work (could be that without a change in the actual url after someone enters their location information, we aren't actually triggering the routing? - Carol</li>
+			<li><del> Use human seeking animal form's location info and use it to pull the closest animals - Carol</del></li>
 			<li>Mongo allows restriction to animals within a certain distance, but that function doesn't actually specify the distance in the data that is returned; a Mongo autorun function does send back distances, but doesn't allow limits by distance and doesn't seem to work with Meteor - Call a supplementary method to apply the haversine function after restricting the number of animals that are within a specified range via Mongo?</li>
 		</ul>
 	</li>
@@ -47,11 +47,11 @@ Please add your name to the end of a task if you choose to work on it. If you fi
 	<li>image uploading (rather than using URL inputs and hotlinking from its current location online)</li>
 		<ul>
 			<li> Check out packages on atmosphere -- cfs:autoform? naxio:autoform-file? tomi:upload-server?  <b>Note:</b> Watch out for dependencies for these files (e.g. cfs:autoform states "Add aldeed:collection2, aldeed:autoform, and cfs:standard-packages packages to your app. Also add any other CFS packages you need, particularly a storage adapter package such as cfs:gridfs." Also states elsewhere that the dependencies are aldeed:autoform, underscore, cfs:standard-packages, meteor, templating, raix:ui-dropped-event)<br />See http://victorleungtw.com/meteor-upload-file/ for an explanation of how to address Meteor-hosted builds not being able to use Meteor-CollectionFS and a potential fix for this.  (Also, Meteor-CollectionFS (https://github.com/CollectionFS/Meteor-CollectionFS) is currently a failing build, but uncertain if the 'fail' is due to the Meteor-hosting issue discussed in the above blog entry.  Also it may be good to go by the time by we get to this.) </li>
-			<li>Ensure that only png, jpg, gif (in other words web-ready image formats) are uploaded - Check that file type (and not just file extension?) are right type? Scan for viruses?</li>
+			<li>Ensure that only png, jpg, gif (in other words web-ready image formats) are uploaded - Check that file type (and not just file extension) are right type? Scan for viruses?</li>
 		</ul>
+	<li>allow for multiple images to be uploaded for an individual animal, which would be shown as a gallery on the animal's profile (possibly beneath the animal's details)</li>
 	<li>pagination (via publication and subscription?)- Abhilasha (I will research on this)</li>
 	<li>change name of app to "Human Seeking Animal" or "Animal Seeking Human"? (this is more of a discussion point than a task)</li>
-	<li>allow for multiple images to be uploaded for an individual animal, which would be shown as a gallery on the animal's profile (possibly beneath the animal's details)</li>
 	<li>colorful redesign that matches the light-hearted subject of the app better</li>
 	<li>internal messaging system to protect e-mail information of people giving away animals</li>
 	<li>resizing/cropping of profile image (probably too time-consuming for us)</li>

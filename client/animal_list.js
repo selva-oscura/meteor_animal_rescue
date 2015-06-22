@@ -58,10 +58,8 @@ Template.animalList.helpers({
 
 // events
 Template.animalList.events({
-	'submit .filter': function(e){
-		e.preventDefault();
-		var filter_data={};
-
+	'submit .filterLocation': function(e){
+		e.preventDefault();		
 		// get location data
 		var locale = $(e.target).find('[name=locale]').val();
 		Session.set('currentLocale', locale);
@@ -103,6 +101,10 @@ Template.animalList.events({
 				}
 			});
 		}
+	},
+	'submit .filter': function(e){
+		e.preventDefault();
+		var filter_data={};
 
 		// get radio data
 		var type = $(e.target).find('[name=type]:checked').val();
