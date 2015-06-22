@@ -56,19 +56,19 @@
 				<div class="form-group col-lg-12">
 					<label class="control-label" for="type">Type:</label><br />
 					<div class="col-lg-6 col-md-6 col-sm-6">
-					    <input type="radio" name="type" value="1">
+					    <input type="radio" name="type" value="1" {{currentFilters "type" 1}}>
 						<label class="radio_spacing">
 					    	Cat
 						</label>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-6">
-					    <input type="radio" name="type" value="2">
+					    <input type="radio" name="type" value="2" {{currentFilters "type" 2}}>
 						<label class="radio_spacing">
 					    	Dog
 					    </label>
 					</div>
 					<div class="col-lg-12 col-md-12 col-sm-12">
-					    <input type="radio" name="type" value="-99">
+					    <input type="radio" name="type" value="-99" {{currentFilters "type" -99}}>
 						<label class="radio_spacing">
 					    	No Preference
 					    </label>
@@ -78,19 +78,19 @@
 					<label class="control-label" for="health_issues">Special Needs:</label><br />
 					<div class="col-lg-6 col-md-6 col-sm-6">
 						<label class="radio_spacing">
-					    	<input type="radio" name="health_issues" value="1">
+					    	<input type="radio" name="health_issues" value="1"  {{currentFilters "health_issues" 1}}>
 					    	Yes
 					    </label>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-6">
 						<label class="radio_spacing">
-					    	<input type="radio" name="health_issues" value="0">
+					    	<input type="radio" name="health_issues" value="0" {{currentFilters "health_issues" 0}}>
 					    	No
 					    </label>
 					</div>
 					<div class="col-lg-12 col-md-12 col-sm-12">
 						<label class="radio_spacing">
-					    	<input type="radio" name="health_issues" value="-99">
+					    	<input type="radio" name="health_issues" value="-99" {{currentFilters "health_issues" -99}}>
 					    	No Preference
 					    </label>
 					</div>
@@ -101,19 +101,19 @@
 					<label class="control-label" for="personality">Personality:</label><br />
 					<div class="col-lg-6 col-md-6 col-sm-6">
 						<label class="radio_spacing">
-						    <input type="checkbox" name="personality" value="3">
+						    <input type="checkbox" name="personality" value="3" {{currentFilters "personality" 3}}>
 					    	Friendly
 					    </label>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-6">
 						<label class="radio_spacing">
-						    <input type="checkbox" name="personality" value="1">
+						    <input type="checkbox" name="personality" value="1" {{currentFilters "personality" 1}}>
 					    	Shy
 					    </label>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-6">
 						<label class="radio_spacing">
-						    <input type="checkbox" name="personality" value="2">
+						    <input type="checkbox" name="personality" value="2" {{currentFilters "personality" 2}}>
 					    	A mix
 					    </label>
 					</div>
@@ -122,19 +122,19 @@
 					<label class="control-label" for="kid_friendly">Kid Friendly:</label><br />
 					<div class="col-lg-6 col-md-6 col-sm-6">
 						<label class="radio_spacing">
-					    	<input type="radio" name="kid_friendly" value="1">
+					    	<input type="radio" name="kid_friendly" value="1" {{currentFilters "kid_friendly" 1}}>
 					    	Yes
 					    </label>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-6">
 						<label class="radio_spacing">
-					    	<input type="radio" name="kid_friendly" value="0">
+					    	<input type="radio" name="kid_friendly" value="0" {{currentFilters "kid_friendly" 0}}>
 					    	No
 					    </label>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-6">
 						<label class="radio_spacing">
-					    	<input type="radio" name="kid_friendly" value="-99">
+					    	<input type="radio" name="kid_friendly" value="-99" {{currentFilters "kid_friendly" -99}}>
 					    	No Preference
 					    </label>
 					</div>
@@ -145,60 +145,60 @@
 					<label class="control-label" for="age">Age:</label><br />
 					<div class="col-lg-6 col-md-6">
 						<label class="radio_spacing">
-							<input type="checkbox" name="age" value="1">&lt;6 months
+							<input type="checkbox" name="age" value="1" {{currentFilters "age" 1}}>&lt;6 months
 						</label>
 					</div>
 					<div class="col-lg-6 col-md-6">
 						<label class="radio_spacing">
-							<input type="checkbox" name="age" value="2">6 months-1 year
+							<input type="checkbox" name="age" value="2" {{currentFilters "age" 2}}>6 months-1 year
 						</label>
 					</div>
 					<div class="col-lg-6 col-md-6">
 						<label class="radio_spacing">
-							<input type="checkbox" name="age" value="3">1-3 years
+							<input type="checkbox" name="age" value="3" {{currentFilters "age" 3}}>1-3 years
 						</label>
 					</div>
 					<div class="col-lg-6 col-md-6">
 						<label class="radio_spacing">
-							<input type="checkbox" name="age" value="4">3-5 years
+							<input type="checkbox" name="age" value="4" {{currentFilters "age" 4}}>3-5 years
 						</label>
 					</div>
 					<div class="col-lg-6 col-md-6">
 						<label class="radio_spacing">
-			  				<input type="checkbox" name="age" value="5">5-10 years
+			  				<input type="checkbox" name="age" value="5" {{currentFilters "age" 5}}>5-10 years
 			  			</label>
 					</div>
 					<div class="col-lg-6 col-md-6">
 						<label class="radio_spacing">
-			  				<input type="checkbox" name="age" value="6">&gt;10 years
+			  				<input type="checkbox" name="age" value="6" {{currentFilters "age" 6}}>&gt;10 years
 			  			</label>
 			  		</div>
-				</div>
+				</div> 
 				<div class="form-group col-lg-12">
 					<label class="control-label" for="size">Size:</label><br />
 					<div class="col-lg-6 col-md-6">
 						<label class="radio_spacing">
-							<input type="checkbox" name="size" value="1">&lt;10 lbs
+							<input type="checkbox" name="size" value="1" {{currentFilters "size" 1}}>&lt;10 lbs
 						</label>
 					</div>
 					<div class="col-lg-6 col-md-6">
 						<label class="radio_spacing">
-							<input type="checkbox" name="size" value="2">10-25 lbs
+							<input type="checkbox" name="size" value="2" {{currentFilters "size" 2}}>10-25 lbs
 						</label>
 					</div>
 					<div class="col-lg-6 col-md-6">
 						<label class="radio_spacing">
-							<input type="checkbox" name="size" value="3">25-40 lbs
+							<input type="checkbox" name="size" value="3" {{currentFilters "size" 3}}>25-40 lbs
 						</label>
 					</div>
 					<div class="col-lg-6 col-md-6">
 						<label class="radio_spacing">
-							 <input type="checkbox" name="size" value="4">40-70 lbs
+							 <input type="checkbox" name="size" value="4" {{currentFilters "size" 4}}>40-70 lbs
 						</label>
 					</div>
 					<div class="col-lg-6 col-md-6">
 						<label class="radio_spacing">
-				  			<input type="checkbox" name="size" value="5">&gt;70 lbs
+				  			<input type="checkbox" name="size" value="5" {{currentFilters "size" 5}}>&gt;70 lbs
 				  		</label>
 					</div>
 				</div>

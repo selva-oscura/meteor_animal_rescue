@@ -14,6 +14,16 @@ Template.filterAnimals.helpers({
 			range=4;
 		}
 		return range;
+	},currentFilters: function(param, value){
+		var currentFilter = Session.get("currentFilter");
+		if(currentFilter[param]){
+			// console.log(param, currentFilter[param]);
+			for(var i = 0; i<currentFilter[param].length; i++){
+				if(currentFilter[param][i]==value){
+					return "checked";
+				}
+			}
+		}
 	}
 });
 
@@ -23,7 +33,7 @@ Template.animalList.helpers({
 		var filter_data = Session.get("currentFilter");
 		var user_data = Session.get("userCoordinates");
 		var range_data = Session.get("range");
-		console.log('filter_data', filter_data, 'user_data', user_data, 'range_data', range_data);
+		// console.log('filter_data', filter_data, 'user_data', user_data, 'range_data', range_data);
 		var query={};
 		var distanceQuery={};
 		var andArray = [];
@@ -44,8 +54,8 @@ Template.animalList.helpers({
 		if(andArray[0]){
 			query['$and'] = andArray;
 		}
-		console.log('query', JSON.stringify(query));
-		console.log('session.userCoordinates', user_data);
+		// console.log('query', JSON.stringify(query));
+		// console.log('session.userCoordinates', user_data);
 		return Animals.find(query, {sort: {created_at: -1}});
 	},userCoordinates: function(){
 		var check=Session.get('userCoordinates');
