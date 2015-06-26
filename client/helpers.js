@@ -82,7 +82,7 @@ UI.registerHelper("prettifySize", function(size){
 	}else if(size==4){
 		data = "40-70 lbs.";
 	}else if(size==5){
-		data = ">70lbs.";
+		data = ">70 lbs.";
 	}else if(size==-99){
 		data = "Information Unavailable";
 	}

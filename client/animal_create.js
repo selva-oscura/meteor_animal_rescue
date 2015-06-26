@@ -66,8 +66,6 @@ Template.animalCreate.events({
 				}
 				Router.go('animalProfile', {_id: result._id});
 			});
-		}else{
-			console.log('my logic sucks');
 		}
 	},
 	'change #differentAddress': function(){
@@ -75,11 +73,6 @@ Template.animalCreate.events({
 		// console.log(checked);
 		Session.set('useDifferentAddress', checked);
 	},
-	// 'change #range': function(){
-	// 	var range = $('input[name=range]').val();
-	// 	console.
-	// 	Session.set("currentRange", range);
-	// }
 	'click .cancel': function(){
 		window.location.href = "/";
 	}

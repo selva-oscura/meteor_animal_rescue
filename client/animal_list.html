@@ -1,19 +1,12 @@
 <template name="animalList">
-	{{> filterAnimals}}
+	{{> animalListFilters}}
 	<div class='clear'></div>
-<!-- 	{{#if userCoordinates}}
-		<p>In Local Results</p>
-		{{#each localResults}}
-			{{> localResult}}
-		{{/each}}
-	{{else}} -->
 		{{#each results}}
 			{{> result}}
 		{{/each}}
-<!-- 	{{/if}} -->
 </template>
 
-<template name="filterAnimals">
+<template name="animalListFilters">
 	<div class="filterAnimals">
 		<form class="form-horizontal filterLocation">
 			<div class="form-group col-lg-12">
@@ -224,34 +217,10 @@
 			</div>
 			<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
 			<div class="col-lg-4 col-md-4 col-sm-5 col-xs-6">
-					<h3>{{name}}</h3>
-					<p>Sex: {{prettifySex sex}}</p>
-					<p>Age: {{prettifyAge age}}</p>
-					<p>Size: {{prettifySize size}}</p>
-					<p>Personality: {{prettifyPersonality personality}}</p>
-			</div>
-			<div class="col-lg-2 col-md-2 col-sm-1"></div>
-		</div>
-	</a>
-</template>
-
-<template name="localResult">
-	<a href="/animal/{{_id}}">
-		<div class="row animal-result">
-			<div class="col-lg-2 col-md-2 col-sm-1 col-xs-1"></div>
-			<div class="col-lg-3 col-md-3 col-sm-4 col-xs-4">
-				<div class="small-pic">
-					{{#if img_path}}
-						<img src="{{img_path}}" alt="animal image">
-					{{else}}	
-						<img src="/paw.png" alt="animal paw">
-					{{/if}}		
-				</div>
-			</div>
-			<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
-			<div class="col-lg-4 col-md-4 col-sm-5 col-xs-6">
 				<h3>{{name}}</h3>
-				<p>Distance: Still need to get this displayed</p>
+				{{#if animalDistanceAvailable}}
+					<p>{{animalDistance _id}}</p>
+				{{/if}}
 				<p>Sex: {{prettifySex sex}}</p>
 				<p>Age: {{prettifyAge age}}</p>
 				<p>Size: {{prettifySize size}}</p>

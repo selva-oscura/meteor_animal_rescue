@@ -1,5 +1,5 @@
 //helpers
-Template.filterAnimals.helpers({
+Template.animalListFilters.helpers({
 	currentLocale: function(){
 		var currentLocale = Session.get("currentLocale");
 		return currentLocale;
@@ -35,7 +35,6 @@ Template.animalList.helpers({
 		var range_data = Session.get("range");
 		// console.log('filter_data', filter_data, 'user_data', user_data, 'range_data', range_data);
 		var query={};
-		var distanceQuery={};
 		var andArray = [];
 		for(var key in filter_data){
 			var orArray = [];
@@ -54,15 +53,15 @@ Template.animalList.helpers({
 		if(andArray[0]){
 			query['$and'] = andArray;
 		}
-		// console.log('query', JSON.stringify(query));
-		// console.log('session.userCoordinates', user_data);
-		return Animals.find(query, {sort: {created_at: -1}});
-	},userCoordinates: function(){
-		var check=Session.get('userCoordinates');
-		if(!check){
-			check=false;
+		var userCoordinates = Session.get('userCoordinates');
+		if(userCoordinates){
+			var all_animals = Animals.find(query, {sort: {created_at: -1}}).fetch();					
+			animalDistances = Meteor.call('getDistance', userCoordinates, all_animals, function(error, result){
+				Session.set('animalDistances', result);
+				Session.set('animalDistancesAvailable', true);
+			});
 		}
-		return check;
+		return Animals.find(query, {sort: {created_at: -1}});
 	}
 });
 
@@ -92,22 +91,7 @@ Template.animalList.events({
 				if(result == "error" || !result){
 					return throwError('Unable to computer your longitude and latitude.  Please check your internet connection or your city/postal code and country combination.');
 				}else{
-					console.log('got coordinates?', result);
-					// var coordinates = [result.longitude, result.latitude];
 					Session.set('userCoordinates', result);
-					// var userCoordinates = result;
-					// var all_animals = this.Animals._collection.queries[1].results;
-					// var animalDistances = Meteor.call('getDistance', userCoordinates, all_animals, function(error, result){
-					// 	console.log('error',error, 'result', result);
-					// 	// return result;
-					// 	for(var i = 0; i< result.length; i++){
-					// 		localAnimalCreate(result[i], function(error,result){
-					// 			if(error){
-					// 				console.log(error.reason);
-					// 			}
-					// 		});
-					// 	}
-					// });
 				}
 			});
 		}
@@ -164,5 +148,23 @@ Template.animalList.events({
 	'change #range': function(){
 		var range = $('input[name=range]').val();
 		Session.set("currentRange", range);
+	}
+});
+
+Template.result.helpers({
+	animalDistanceAvailable: function(){
+		var animalDistancesAvailable = Session.get('animalDistancesAvailable');
+		if(animalDistancesAvailable==true){
+			return true;
+		}
+		return false;
+	},animalDistance: function(id){
+		var animalDistances = Session.get('animalDistances');
+		for(i in animalDistances){
+			if(animalDistances[i].animalId==id){
+				distance = animalDistances[i].distance+" miles away";
+				return distance;
+			}
+		}
 	}
 });
