@@ -3,6 +3,8 @@
 	<div class='clear'></div>
 		{{#each results}}
 			{{> result}}
+		{{else}}
+			{{> no_results}}
 		{{/each}}
 </template>
 
@@ -229,4 +231,11 @@
 			<div class="col-lg-2 col-md-2 col-sm-1"></div>
 		</div>
 	</a>
+</template>
+
+<template name="no_results">
+	<div class="row">
+		<div class="col-lg-1 col-md-1"></div>
+		<h4 class="col-lg-10 col-md-10 col-sm-12 col-xs-12">We're sorry.  There are no animals currently in the database which meet the geographic and other specifications.  Please try expanding your geographic range or relax your restrictions.</h4>
+	</div>
 </template>

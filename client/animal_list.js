@@ -33,7 +33,7 @@ Template.animalList.helpers({
 		var filter_data = Session.get("currentFilter");
 		var user_data = Session.get("userCoordinates");
 		var range_data = Session.get("range");
-		// console.log('filter_data', filter_data, 'user_data', user_data, 'range_data', range_data);
+		console.log('filter_data', filter_data, 'user_data', user_data, 'range_data', range_data);
 		var query={};
 		var andArray = [];
 		for(var key in filter_data){
@@ -53,14 +53,18 @@ Template.animalList.helpers({
 		if(andArray[0]){
 			query['$and'] = andArray;
 		}
+		console.log('query',query);
 		var userCoordinates = Session.get('userCoordinates');
 		if(userCoordinates){
-			var all_animals = Animals.find(query, {sort: {created_at: -1}}).fetch();					
-			animalDistances = Meteor.call('getDistance', userCoordinates, all_animals, function(error, result){
+			var allAnimals = Animals.find(query, {sort: {created_at: -1}}).fetch();				
+			animalDistances = Meteor.call('getDistance', userCoordinates, allAnimals, function(error, result){
 				Session.set('animalDistances', result);
 				Session.set('animalDistancesAvailable', true);
 			});
 		}
+		// var animalCount = Animals.find().fetch().length;
+		// console.log('in results, setting animalCount', animalCount);
+		// Session.set('animalCount',animalCount);
 		return Animals.find(query, {sort: {created_at: -1}});
 	}
 });
