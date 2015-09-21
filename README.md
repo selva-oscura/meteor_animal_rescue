@@ -19,7 +19,7 @@ See it online! http://animal_rescue.meteor.com/
 
 ![the team after winning 2nd place](http://i132.photobucket.com/albums/q17/dierat/11169530_10203834632097658_2170770506262371486_o.jpg)
 *the team after winning 2nd place*
-<p>(with mentor [Rahul Choudhury](https://github.com/Primigenus) )</p>
+<p>with mentor [Rahul Choudhury](https://github.com/Primigenus)</p>
 
 
 #Roadmap
