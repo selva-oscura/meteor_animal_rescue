@@ -7,6 +7,15 @@ See it online! http://animal_rescue.meteor.com/
 ![Animal Rescue home screen](http://i132.photobucket.com/albums/q17/dierat/Screen%20Shot%202015-09-18%20at%206.08.01%20PM.png)
 
 
+# The Team
+
+- [Carol St. Louis](https://github.com/selva-oscura)
+- [Abhilasha Bhatia](https://github.com/abhilashabhatia)
+- [Diedra Rater](https://github.com/dierat)
+- [Rahul Choudhury](https://github.com/Primigenus) (mentor)
+- [Kerry D. Rosado](https://github.com/kdrosado)
+
+
 #Roadmap
 
 Please add your name to the end of a task if you choose to work on it. If you finish a task, please wrap the task in &lt;del&gt;&lt;&frasl;del&gt; tags and move it to the top of the list so we can see it has been completed.
