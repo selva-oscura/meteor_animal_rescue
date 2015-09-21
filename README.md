@@ -9,11 +9,17 @@ See it online! http://animal_rescue.meteor.com/
 
 # The Team
 
+![the team discussing planning and development](http://i132.photobucket.com/albums/q17/dierat/CC6TCVrUsAAO3Mq.jpg)
+*the team discussing planning and development at Women Who Code Silicon Valley hackathon*
+
 - [Carol St. Louis](https://github.com/selva-oscura)
 - [Abhilasha Bhatia](https://github.com/abhilashabhatia)
 - [Diedra Rater](https://github.com/dierat)
-- [Rahul Choudhury](https://github.com/Primigenus) (mentor)
 - [Kerry D. Rosado](https://github.com/kdrosado)
+
+![the team after winning 2nd place](http://i132.photobucket.com/albums/q17/dierat/11169530_10203834632097658_2170770506262371486_o.jpg)
+*the team after winning 2nd place at Women Who Code Silicon Valley hackathon*
+(with mentor [Rahul Choudhury](https://github.com/Primigenus))
 
 
 #Roadmap
