@@ -1,4 +1,4 @@
-# meteor_animal_rescue
+# Animal Rescue
 
 Animal Rescue is an app for uploading and finding animals that are available for adoption.
 
