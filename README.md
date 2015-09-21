@@ -2,6 +2,10 @@
 
 Animal Rescue is an app for uploading and finding animals that are available for adoption, make with Meteor, MongoDB, and Bootstrap.
 
+See it online! http://animal_rescue.meteor.com/
+
+![Animal Rescue home screen](http://i132.photobucket.com/albums/q17/dierat/Screen%20Shot%202015-09-18%20at%206.08.01%20PM.png)
+
 
 #Roadmap
 
