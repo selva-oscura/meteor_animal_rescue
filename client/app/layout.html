@@ -1,11 +1,22 @@
 <template name="layout">
 	<div class="container">
+		{{> prototypeNotice}}
 		{{> header}}
 		{{> errors}}
 		<div id="content" class="row">
 			{{> yield}}
 		</div>
 	</div>
+</template>
+
+<template name="prototypeNotice">
+	{{#if showNotice}}
+		<div class="notice">
+			This app is a prototype that was developed at the Women Who Code Silicon Valley hackathon. The animals listed are not actually up for adoption. 
+		</div>
+
+		<div class="removeNotice">X</div>
+	{{/if}}
 </template>
 
 <template name="header">
