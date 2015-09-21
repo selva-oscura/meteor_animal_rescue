@@ -1,6 +1,6 @@
 # Animal Rescue
 
-Animal Rescue is an app for uploading and finding animals that are available for adoption.
+Animal Rescue is an app for uploading and finding animals that are available for adoption, make with Meteor, MongoDB, and Bootstrap.
 
 
 #Roadmap
