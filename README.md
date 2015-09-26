@@ -4,12 +4,12 @@ Animal Rescue is an app for uploading and finding animals that are available for
 
 See it online! http://animal_rescue.meteor.com/
 
-![Animal Rescue home screen](http://i132.photobucket.com/albums/q17/dierat/Screen%20Shot%202015-09-18%20at%206.08.01%20PM.png)
+![Animal Rescue home screen](http://i132.photobucket.com/albums/q17/dierat/software%20dev%20portfolio%20images/Screen%20Shot%202015-09-18%20at%206.08.01%20PM.png)
 
 
 # The Team
 
-![the team discussing planning and development](http://i132.photobucket.com/albums/q17/dierat/CC6TCVrUsAAO3Mq.jpg)
+![the team discussing planning and development](http://i132.photobucket.com/albums/q17/dierat/software%20dev%20portfolio%20images/CC6TCVrUsAAO3Mq.jpg)
 *the team discussing planning and development at Women Who Code Silicon Valley hackathon*
 
 - [Abhilasha Bhatia](https://github.com/abhilashabhatia)
@@ -17,7 +17,7 @@ See it online! http://animal_rescue.meteor.com/
 - [Carol St. Louis](https://github.com/selva-oscura)
 - [Kerry D. Rosado](https://github.com/kdrosado)
 
-![the team after winning 2nd place](http://i132.photobucket.com/albums/q17/dierat/11169530_10203834632097658_2170770506262371486_o.jpg)
+![the team after winning 2nd place](http://i132.photobucket.com/albums/q17/dierat/software%20dev%20portfolio%20images/11169530_10203834632097658_2170770506262371486_o.jpg)
 *the team after winning 2nd place, with mentor [Rahul Choudhury](https://github.com/Primigenus)*
 
 
