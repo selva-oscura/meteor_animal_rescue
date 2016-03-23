@@ -14,15 +14,15 @@ if(Animals.find().count()===0){
 		health_issues:"0",
 		comments:"Really friendly.  I mean REALLY friendly.  You will never be able to have a cat-free lap again.",
 		img_path:"http://www.maine-coon-cat-nation.com/image-files/maine-coon-brown-mackerel.jpg",
-		offererEmail: "adoptions@city.aspca.org",
+		offererEmail: "adoptions@santamonica.org",
 		offererId: "12345",
 		address: 
-		    { 	street_address: '616 Serra Street',
-		      	city: 'Stanford',
+		    { 	street_address: '1310 3rd Street',
+		      	city: 'Santa Monica',
 				state: 'CA',
-				postal_code: '94305',
+				postal_code: '90401',
 				country: 'US',
-				coordinates: [-122.1646818, 37.4273156]
+				coordinates: [-118.49769638465568, 34.0233207]
 			},
 		created_at: now - 1*day
 	});
@@ -38,16 +38,16 @@ if(Animals.find().count()===0){
 		kid_friendly: "0",
 		health_issues:"1",
 		comments:"FIV positive",
-		img_path:"http://i.ebayimg.com/00/s/MzM1WDUwMA==/z/xlAAAOSw7aBVCXaG/$_35.JPG",
-		offererEmail: "had_to_move@nirgendwo.de",
-		offererId: "123456789",
+		img_path:"https://c1.staticflickr.com/1/181/480422215_0a76134c5a.jpg",
+		offererEmail: "had_to_move@fresno.ca",
+		offererId: "54321",
 		address: 
-		    { 	street_address: 'Reichpietschufer',
-		      	city: 'Berlin',
-				state: '',
-				postal_code: '10785',
-				country: 'DE',
-				coordinates: [13.3650508, 52.50691150000001]
+		    { 	street_address: '2600 Fresno Street',
+		      	city: 'Fresno',
+				state: 'CA',
+				postal_code: '93721',
+				country: 'US',
+				coordinates: [-119.7842967404755,36.73956821619767]
 			},
 		created_at: now - 4*day
 	});
@@ -64,15 +64,15 @@ if(Animals.find().count()===0){
 		health_issues:"0",
 		comments:"temporarily fostered feral cat.  becoming much more friendly as it gets to know people",
 		img_path:"http://www.pets4homes.co.uk/images/classifieds/2013/07/31/377342/large/9-week-old-female-black-kitten-for-sale-in-wigan-51f910c6a18ff.jpeg",
-		offererEmail: "adoptions@county.humanesociety.org",
+		offererEmail: "annahmen@berlin.de",
 		offererId: "54321",
 		address: 
-		    { 	street_address: 'Reichpietschufer',
+		    { 	street_address: 'Rathausstraße',
 		      	city: 'Berlin',
 				state: '',
-				postal_code: '10785',
+				postal_code: '10178',
 				country: 'DE',
-				coordinates: [13.3650508, 52.50691150000001]
+				coordinates: [13.4086443, 52.5182775]
 			},
 		created_at: now - 3*day
 	});
@@ -114,15 +114,18 @@ if(Animals.find().count()===0){
 		health_issues:"0",
 		comments:"Dogs have owners.  Cats have help.  Especially Her Highness",
 		img_path:"https://knv09.files.wordpress.com/2011/11/dsc_0139.jpg",
-		offererEmail: "adoptions@city.aspca.org",
-		offererId: "12345",
+		offererEmail: "adoptions@thepalace.gov.uk",
+		offererId: "54345",
 		address: 
-		    { 	street_address: '616 Serra Street',
-		      	city: 'Stanford',
-				state: 'CA',
-				postal_code: '94305',
-				country: 'US',
-				coordinates: [-122.1689284, 37.4135757]
+		    { 	street_address: 'Buckingham Palace',
+		      	city: 'London',
+				state: '',
+				postal_code: 'SW1A 1AA',
+				country: 'UK',
+				coordinates: [
+					-0.14189,
+					51.501364
+				]
 			},
 		created_at: now - 2.5*day
 	});	
@@ -139,15 +142,15 @@ if(Animals.find().count()===0){
 		health_issues:"0",
 		comments:"",
 		img_path:"https://www.petfinder.com/wp-content/uploads/2012/11/147083304-dogs-home-alone-all-day-632x475.jpg",
-		offererEmail: "adoptions@city.aspca.org",
-		offererId: "12345",
+		offererEmail: "adoptions@dc.org",
+		offererId: "2222",
 		address: 
-		    { 	street_address: '616 Serra Street',
-		      	city: 'Stanford',
-				state: 'CA',
-				postal_code: '94305',
+		    { 	street_address: '1775 Massachusetts Ave NW',
+		      	city: 'Washington',
+				state: 'DC',
+				postal_code: '20036',
 				country: 'US',
-				coordinates: [-122.1689284, 37.4135757]
+				coordinates: [-77.0405785,38.9090827]
 			},
 		created_at: now - 1*day
 	});
@@ -189,15 +192,15 @@ if(Animals.find().count()===0){
 		health_issues:"0",
 		comments:"",
 		img_path:"http://media.masslive.com/talk_impact/photo/ugly-dogjpg-4a94782fd09dd3df.jpg",
-		offererEmail: "adoptions@city.aspca.org",
-		offererId: "12345",
+		offererEmail: "adoptions@krakow.pl",
+		offererId: "12321",
 		address: 
-		    { 	street_address: '616 Serra Street',
-		      	city: 'Stanford',
-				state: 'CA',
-				postal_code: '94305',
-				country: 'US',
-				coordinates: [-122.1689284, 37.4135757]
+		    { 	street_address: 'Wawel 5',
+		      	city: 'Krakow',
+				state: '',
+				postal_code: '31-001',
+				country: 'PL',
+				coordinates: [19.9332183, 50.0540529]
 			},
 		created_at: now - 3.2*day
 	});
@@ -243,18 +246,18 @@ if(Animals.find().count()===0){
 		"comments" : "Well.... friendly and outgoing with *his* human.",
 		"img_path" : "http://www.andrewsmcmeel.com/images/default-source/assets/calvin_dancing.gif?sfvrsn=2",
 		"offererId" : "c5EWbvCjuEWPXFsRq",
-		"offererEmail" : "niemand@nirgendwo.de",
+		"offererEmail" : "somewhere@cleveland.us",
 		"address" : {
-			"street_address" : "Reichpietschufer 35",
-			"city" : "Berlin",
-			"state" : "Berlin",
-			"postal_code" : "10785",
-			"country" : "DE",
+			"street_address" : "2345 Lee Rd",
+			"city" : "Cleveland Heights",
+			"state" : "OH",
+			"postal_code" : "44118",
+			"country" : "US",
 			"coordinates" : [
-				13.3691916,
-				52.506145
+				-81.54985785,
+				41.49562074999999
 			]
 		},
-		"created_at" : now-14*day
+		"created_at" : now-140*day
 	})
 }
