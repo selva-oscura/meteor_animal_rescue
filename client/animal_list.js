@@ -53,7 +53,6 @@ Template.animalList.helpers({
 		if(andArray[0]){
 			query['$and'] = andArray;
 		}
-		console.log('query',query);
 		var userCoordinates = Session.get('userCoordinates');
 		if(userCoordinates){
 			var allAnimals = Animals.find(query, {sort: {created_at: -1}}).fetch();				
@@ -62,9 +61,6 @@ Template.animalList.helpers({
 				Session.set('animalDistancesAvailable', true);
 			});
 		}
-		// var animalCount = Animals.find().fetch().length;
-		// console.log('in results, setting animalCount', animalCount);
-		// Session.set('animalCount',animalCount);
 		return Animals.find(query, {sort: {created_at: -1}});
 	}
 });
