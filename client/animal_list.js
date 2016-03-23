@@ -89,7 +89,7 @@ Template.animalList.events({
 			console.log(country, ' - ', locale, ' - ', range, 'miles');
 			Meteor.call('fetchLatLong', locale, country, function(error, result){
 				if(result == "error" || !result){
-					return throwError('Unable to computer your longitude and latitude.  Please check your internet connection or your city/postal code and country combination.');
+					return throwError('Unable to compute your longitude and latitude.  Please check your internet connection or your city/postal code and country combination.');
 				}else{
 					Session.set('userCoordinates', result);
 				}
