@@ -2,8 +2,6 @@
 
 Animal Rescue is a Meteor.js app for uploading and finding animals that are available for adoption. This project was developed, using Meteor, MongoDB, and Bootstrap, and won 2nd place at the Women Who Code Silicon Valley hackathon at Paypal in April 2015. 
 
-See it online! http://animal_rescue.meteor.com/
-
 ![Animal Rescue home screen](http://i132.photobucket.com/albums/q17/dierat/software%20dev%20portfolio%20images/Screen%20Shot%202015-09-18%20at%206.08.01%20PM.png)
 
 
